@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:imagetopdf/route/app_routes.dart';
 import 'package:imagetopdf/utils/app_button.dart';
 import 'package:imagetopdf/utils/app_colors.dart';
+import 'package:imagetopdf/utils/app_style.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -16,13 +17,15 @@ class SaveViewScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        foregroundColor: AppColors.kPrimaryColor,
         actions: [
           IconButton(
               onPressed: () => Get.offAllNamed(AppRoutes.homeScreen),
-              icon: const Icon(
+              icon: Icon(
                 Icons.home,
                 size: 28,
-              ))
+                color: AppColors.kPrimaryColor,
+              )),
         ],
       ),
       body: ListView(
@@ -47,8 +50,9 @@ class SaveViewScreen extends StatelessWidget {
                         baseColor: Colors.grey,
                         highlightColor: Colors.grey.shade200,
                         child: Container(
-                          decoration:
-                              BoxDecoration(color: AppColors.kBackgroundColor, borderRadius: BorderRadius.circular(5)),
+                          decoration: BoxDecoration(
+                              color: AppColors.whiteColor,
+                              borderRadius: BorderRadius.circular(5)),
                         ),
                       ),
                     ),
@@ -61,8 +65,8 @@ class SaveViewScreen extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                con.fileName.toString(),
-                style: const TextStyle(fontSize: 20),
+                con.fileName.toString().capitalize ?? '',
+                style: AppStyle.normalStyle(fz: 20),
               ),
               const SizedBox(
                 height: 30,
@@ -82,9 +86,10 @@ class SaveViewScreen extends StatelessWidget {
                   const SizedBox(
                     width: 10,
                   ),
-                  const Text(
+                  Text(
                     'Saved successfully!',
-                    style: TextStyle(fontSize: 15, color: Colors.white, fontWeight: FontWeight.w500),
+                    style: AppStyle.mediumStyle(
+                        fz: 15, fontWeight: FontWeight.w500),
                   )
                 ],
               ),
@@ -102,6 +107,7 @@ class SaveViewScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: AppButton(
+            buttonType: ButtonType.gradient,
             onPressed: () async {
               await Share.shareXFiles([XFile(con.path.value)]);
             },

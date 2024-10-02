@@ -2,8 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:imagetopdf/utils/global.dart';
-import 'package:imagetopdf/widget/webview.dart';
 
 import '../../utils/app_colors.dart';
 import '../home/home_controller.dart';
@@ -37,7 +35,7 @@ class AppDrawer extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              color: AppColors.kBackgroundColor,
+              color: AppColors.whiteColor,
               child: ListView(
                 padding: EdgeInsets.zero,
                 physics: const NeverScrollableScrollPhysics(),
@@ -56,7 +54,9 @@ class AppDrawer extends StatelessWidget {
                     onTap: () {
                       con.closeDrawer();
                       con.shareApp(
-                        Platform.isAndroid ? "https://play.google.com/store/apps/details?id=com.micrasol.imagetopdfstudio" : "https://apps.apple.com/us/app/photo-to-pdf-studio/id6461312058",
+                        Platform.isAndroid
+                            ? "https://play.google.com/store/apps/details?id=com.micrasol.imagetopdfstudio"
+                            : "https://apps.apple.com/us/app/photo-to-pdf-studio/id6461312058",
                       );
                     },
                   ),
@@ -71,17 +71,7 @@ class AppDrawer extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    onTap: () async {
-                      con.closeDrawer();
-                      if (await getConnectivityResult()) {
-                        Get.to(
-                          () => const MyWebView(
-                            title: "About Us",
-                            webURL: "https://www.micrasolution.com/about-us/",
-                          ),
-                        );
-                      }
-                    },
+                    onTap: () async {},
                   ),
                 ],
               ),

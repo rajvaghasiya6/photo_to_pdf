@@ -3,8 +3,17 @@ import 'package:flutter/material.dart';
 class AppColors {
   AppColors._();
 
-  static Color kPrimaryColor = const Color(0xFF007C6E);
-  static Color kBackgroundColor = const Color(0xFF242B2A);
+  static Color kPrimaryColor = const Color(0xFFFF223F);
+  static Color scaffoldColor = const Color.fromARGB(255, 246, 246, 246);
+
+  static Color whiteColor = const Color(0xFFFFFFFF);
+  static Color blackColor = const Color(0xFF000000);
+  static Color greyColor = const Color.fromARGB(255, 118, 118, 118);
+
+  static List<Color> gradientColor = [
+    const Color(0xFFFF223F),
+    const Color.fromARGB(255, 255, 86, 95)
+  ];
 
   static Color fromHex(String hexString) {
     final buffer = StringBuffer();

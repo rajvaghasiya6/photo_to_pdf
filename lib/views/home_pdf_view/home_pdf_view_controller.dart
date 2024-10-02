@@ -5,7 +5,7 @@ import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 class HomePdfViewController extends GetxController {
   final GlobalKey<FormFieldState> formKey = GlobalKey<FormFieldState>();
   final FocusNode passwordDialogFocusNode = FocusNode();
-RxBool hasPasswordDialog=false.obs;
+  RxBool hasPasswordDialog = false.obs;
   PdfViewerController? pdfController;
   RxString password = ''.obs;
   Rx<TextEditingController> passwordController = TextEditingController().obs;

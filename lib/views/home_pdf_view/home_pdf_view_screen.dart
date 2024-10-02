@@ -2,7 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:imagetopdf/utils/app_button.dart';
+import 'package:imagetopdf/utils/app_style.dart';
 import 'package:imagetopdf/utils/global.dart';
+import 'package:imagetopdf/utils/sizedbox.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
@@ -15,9 +18,13 @@ class HomePdfViewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromARGB(255, 235, 233, 233),
+        backgroundColor: AppColors.scaffoldColor,
         appBar: AppBar(
-          title: Text(con.fileName.value),
+          title: Text(
+            con.fileName.value,
+            style: AppStyle.mediumStyle(fz: 18),
+          ),
+          foregroundColor: AppColors.kPrimaryColor,
           actions: [
             IconButton(
                 onPressed: () async {
@@ -30,7 +37,8 @@ class HomePdfViewScreen extends StatelessWidget {
               File(con.path.value),
               onDocumentLoadFailed: (details) {
                 if (details.description.contains('password')) {
-                  if (details.description.contains('password') && con.hasPasswordDialog.value) {
+                  if (details.description.contains('password') &&
+                      con.hasPasswordDialog.value) {
                     toast('Invalid password');
                     Get.back();
                     con.formKey.currentState?.validate();
@@ -55,63 +63,56 @@ class HomePdfViewScreen extends StatelessWidget {
         builder: (BuildContext context) {
           return WillPopScope(
             onWillPop: () async {
-              Get.back();
+              Navigator.pop(context);
               Get.back();
               return true;
             },
             child: Dialog(
-              surfaceTintColor: AppColors.kBackgroundColor.withOpacity(.1),
-              backgroundColor: AppColors.kBackgroundColor,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+              surfaceTintColor: AppColors.whiteColor.withOpacity(.1),
+              backgroundColor: AppColors.whiteColor,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5)),
               child: Padding(
                 padding: const EdgeInsets.all(16),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Text(
+                    Text(
                       'Enter Password',
-                      style: TextStyle(fontSize: 16),
+                      style: AppStyle.mediumStyle(fz: 16),
                     ),
-                    const SizedBox(
-                      height: 15,
-                    ),
+                    hSizedBox30,
                     passwordTextFormField(),
-                    const SizedBox(
-                      height: 15,
-                    ),
+                    hSizedBox30,
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        GestureDetector(
-                            onTap: () {
-                              Get.back();
-                              Navigator.pop(context);
-                            },
-                            child: Container(
-                              padding: const EdgeInsets.all(5),
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.grey), borderRadius: BorderRadius.circular(10)),
-                              child: const Text(
-                                "Cancel",
-                                style: TextStyle(color: Colors.white, fontSize: 16),
-                              ),
-                            )),
+                        AppButton(
+                          width: 100,
+                          height: 38,
+                          fontSize: 12,
+                          borderRadius: BorderRadius.circular(5),
+                          title: "Cancel",
+                          buttonType: ButtonType.outline,
+                          onPressed: () {
+                            Navigator.pop(context);
+                            Get.back();
+                          },
+                        ),
                         const SizedBox(
                           width: 10,
                         ),
-                        GestureDetector(
-                          child: Container(
-                            padding: const EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                                border: Border.all(color: Colors.grey), borderRadius: BorderRadius.circular(10)),
-                            child: const Text(
-                              "Confirm",
-                              style: TextStyle(color: Colors.white, fontSize: 16),
-                            ),
-                          ),
-                          onTap: () {
+                        AppButton(
+                          width: 100,
+                          height: 38,
+                          fontSize: 12,
+                          borderRadius: BorderRadius.circular(5),
+                          title: "Confirm",
+                          buttonType: ButtonType.gradient,
+                          onPressed: () {
                             if (con.passwordController.value.text.isNotEmpty) {
-                              con.password.value = con.passwordController.value.text;
+                              con.password.value =
+                                  con.passwordController.value.text;
                               Navigator.pop(context);
                             } else {
                               FocusScope.of(context).unfocus();
@@ -134,13 +135,23 @@ class HomePdfViewScreen extends StatelessWidget {
     return TextFormField(
       autofocus: true,
       controller: con.passwordController.value,
+      style: AppStyle.normalStyle(fz: 16),
       decoration: InputDecoration(
           border: InputBorder.none,
-          enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-          focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-          disabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-          contentPadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
-          fillColor: Colors.black,
+          hintText: "*********",
+          hintStyle: AppStyle.normalStyle(color: AppColors.greyColor),
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(5),
+              borderSide: BorderSide(color: AppColors.kPrimaryColor)),
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(5),
+              borderSide: BorderSide(color: AppColors.kPrimaryColor)),
+          disabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(5),
+              borderSide: BorderSide(color: AppColors.kPrimaryColor)),
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 0, horizontal: 12),
+          fillColor: Colors.white,
           filled: true),
     );
   }

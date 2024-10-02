@@ -41,8 +41,9 @@ class PdfViewController extends GetxController {
               var directory = await getApplicationDocumentsDirectory();
               appDocPath = directory.path;
             } else {
-              var dir = await ExternalPath.getExternalStoragePublicDirectory(ExternalPath.DIRECTORY_DOWNLOADS);
-              var appDoc = await Directory('$dir/PhotoToPdfStudio').create();
+              var dir = await ExternalPath.getExternalStoragePublicDirectory(
+                  ExternalPath.DIRECTORY_DOWNLOADS);
+              var appDoc = await Directory('$dir/PhotoToPdf').create();
               appDocPath = appDoc.path;
             }
 
@@ -50,7 +51,10 @@ class PdfViewController extends GetxController {
             isLoading.value = false;
             file.writeAsBytes(value).then((v) {
               toast("PDF downloaded successfully");
-              Get.toNamed(AppRoutes.saveViewScreen, arguments: ['$appDocPath/${nameController.value.text}.pdf', nameController.value.text]);
+              Get.toNamed(AppRoutes.saveViewScreen, arguments: [
+                '$appDocPath/${nameController.value.text}.pdf',
+                nameController.value.text
+              ]);
             });
           });
           document.dispose();
@@ -62,8 +66,9 @@ class PdfViewController extends GetxController {
           var directory = await getApplicationDocumentsDirectory();
           appDocPath = directory.path;
         } else {
-          var dir = await ExternalPath.getExternalStoragePublicDirectory(ExternalPath.DIRECTORY_DOWNLOADS);
-          var appDoc = await Directory('$dir/PhotoToPdfStudio').create();
+          var dir = await ExternalPath.getExternalStoragePublicDirectory(
+              ExternalPath.DIRECTORY_DOWNLOADS);
+          var appDoc = await Directory('$dir/PhotoToPdf').create();
           appDocPath = appDoc.path;
         }
 
@@ -71,7 +76,10 @@ class PdfViewController extends GetxController {
         isLoading.value = false;
         file.writeAsBytes(pdfData).then((value) {
           toast("PDF downloaded successfully");
-          Get.toNamed(AppRoutes.saveViewScreen, arguments: ['$appDocPath/${nameController.value.text}.pdf', nameController.value.text]);
+          Get.toNamed(AppRoutes.saveViewScreen, arguments: [
+            '$appDocPath/${nameController.value.text}.pdf',
+            nameController.value.text
+          ]);
         });
       }
     } catch (e) {

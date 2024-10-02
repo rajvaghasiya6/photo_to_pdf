@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:imagetopdf/route/app_routes.dart';
 import 'package:imagetopdf/utils/app_colors.dart';
+import 'package:imagetopdf/utils/app_style.dart';
 import 'package:imagetopdf/views/image_view/image_view_controller.dart';
 import 'package:imagetopdf/views/pdf_view/pdf_view_controller.dart';
 
@@ -17,7 +18,11 @@ class LayoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Frames')),
+      appBar: AppBar(
+        title: Text('Frames',
+            style: AppStyle.boldStyle(fz: 20, color: AppColors.kPrimaryColor)),
+        foregroundColor: AppColors.kPrimaryColor,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: SingleChildScrollView(
@@ -30,10 +35,16 @@ class LayoutScreen extends StatelessWidget {
                   itemCount: con.layoutName1.length,
                   shrinkWrap: true,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      mainAxisExtent: 180, crossAxisCount: 3, crossAxisSpacing: 10, mainAxisSpacing: 10),
+                      mainAxisExtent: 180,
+                      crossAxisCount: 3,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10),
                   itemBuilder: (context, index) => Column(
                         children: [
-                          layout1(layoutName: con.layoutName1[index], index: con.index1[index], context: context)
+                          layout1(
+                              layoutName: con.layoutName1[index],
+                              index: con.index1[index],
+                              context: context)
                         ],
                       )),
               const SizedBox(
@@ -45,10 +56,16 @@ class LayoutScreen extends StatelessWidget {
                   itemCount: con.layoutName2.length,
                   shrinkWrap: true,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      mainAxisExtent: 180, crossAxisCount: 3, crossAxisSpacing: 10, mainAxisSpacing: 10),
+                      mainAxisExtent: 180,
+                      crossAxisCount: 3,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10),
                   itemBuilder: (context, index) => Column(
                         children: [
-                          layout2(layoutName: con.layoutName2[index], index: con.index2[index], context: context),
+                          layout2(
+                              layoutName: con.layoutName2[index],
+                              index: con.index2[index],
+                              context: context),
                         ],
                       )),
             ],

@@ -1,9 +1,9 @@
-import 'dart:io';
 import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
+import 'package:imagetopdf/utils/app_colors.dart';
 
 class AppLoader extends StatelessWidget {
   const AppLoader({super.key});
@@ -18,34 +18,22 @@ class AppLoader extends StatelessWidget {
         height: Get.height,
         width: Get.width,
         child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
           child: Scaffold(
-            backgroundColor: Theme.of(context).scaffoldBackgroundColor.withOpacity(.2),
+            backgroundColor:
+                Theme.of(context).scaffoldBackgroundColor.withOpacity(.2),
             body: Center(
               child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 20),
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: Colors.white.withOpacity(.5)),
-                child: const Row(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+                child: Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      width: 24,
-                      height: 24,
-                      child: CircularProgressIndicator(
-                        strokeWidth: 3,
-                        color: Colors.black,
-                      ),
+                    SpinKitSpinningLines(
+                      size: 60,
+                      color: AppColors.kPrimaryColor.withOpacity(0.7),
                     ),
-                    SizedBox(width: 18),
-                    Text(
-                      "Loading...",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 16,
-                        color: Colors.black,
-                      ),
-                    )
                   ],
                 ),
               ),
@@ -59,30 +47,17 @@ class AppLoader extends StatelessWidget {
 
 class CircularLoader extends StatelessWidget {
   final Color? color;
-  final double? width;
+  final double? size;
 
-  const CircularLoader({super.key, this.color, this.width});
+  const CircularLoader({super.key, this.color, this.size});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Center(
-        child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 5),
-          width: Get.width * (width ?? 0.05),
-          height: Get.width * (width ?? 0.05),
-          child: getLoader(color, context),
-        ),
+    return Center(
+      child: SpinKitSpinningLines(
+        size: size ?? 30,
+        color: AppColors.kPrimaryColor.withOpacity(0.8),
       ),
     );
-  }
-
-  getLoader(Color? color, BuildContext context) {
-    if (Platform.isIOS) {
-      return CupertinoActivityIndicator(color: color ?? Colors.black);
-    } else {
-      return CircularProgressIndicator(color: color ?? Colors.black, strokeWidth: 3);
-    }
   }
 }

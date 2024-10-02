@@ -1,7 +1,4 @@
 PODS:
-  - connectivity_plus (0.0.1):
-    - Flutter
-    - ReachabilitySwift
   - device_info_plus (0.0.1):
     - Flutter
   - Flutter (1.0.0)
@@ -10,6 +7,8 @@ PODS:
     - Toast
   - image_picker_ios (0.0.1):
     - Flutter
+  - password_protected_pdf_checker (0.0.1):
+    - Flutter
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -17,7 +16,6 @@ PODS:
     - Flutter
   - printing (1.0.0):
     - Flutter
-  - ReachabilitySwift (5.0.0)
   - share_plus (0.0.1):
     - Flutter
   - syncfusion_flutter_pdfviewer (0.0.1):
@@ -25,31 +23,25 @@ PODS:
   - Toast (4.0.0)
   - url_launcher_ios (0.0.1):
     - Flutter
-  - webview_flutter_wkwebview (0.0.1):
-    - Flutter
 
 DEPENDENCIES:
-  - connectivity_plus (from `.symlinks/plugins/connectivity_plus/ios`)
   - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
   - Flutter (from `Flutter`)
   - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
   - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
+  - password_protected_pdf_checker (from `.symlinks/plugins/password_protected_pdf_checker/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - pdfx (from `.symlinks/plugins/pdfx/ios`)
   - printing (from `.symlinks/plugins/printing/ios`)
   - share_plus (from `.symlinks/plugins/share_plus/ios`)
   - syncfusion_flutter_pdfviewer (from `.symlinks/plugins/syncfusion_flutter_pdfviewer/ios`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
-  - webview_flutter_wkwebview (from `.symlinks/plugins/webview_flutter_wkwebview/ios`)
 
 SPEC REPOS:
   trunk:
-    - ReachabilitySwift
     - Toast
 
 EXTERNAL SOURCES:
-  connectivity_plus:
-    :path: ".symlinks/plugins/connectivity_plus/ios"
   device_info_plus:
     :path: ".symlinks/plugins/device_info_plus/ios"
   Flutter:
@@ -58,6 +50,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/fluttertoast/ios"
   image_picker_ios:
     :path: ".symlinks/plugins/image_picker_ios/ios"
+  password_protected_pdf_checker:
+    :path: ".symlinks/plugins/password_protected_pdf_checker/ios"
   path_provider_foundation:
     :path: ".symlinks/plugins/path_provider_foundation/darwin"
   pdfx:
@@ -70,25 +64,21 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/syncfusion_flutter_pdfviewer/ios"
   url_launcher_ios:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
-  webview_flutter_wkwebview:
-    :path: ".symlinks/plugins/webview_flutter_wkwebview/ios"
 
 SPEC CHECKSUMS:
-  connectivity_plus: 07c49e96d7fc92bc9920617b83238c4d178b446a
-  device_info_plus: 7545d84d8d1b896cb16a4ff98c19f07ec4b298ea
-  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  fluttertoast: fafc4fa4d01a6a9e4f772ecd190ffa525e9e2d9c
+  device_info_plus: 97af1d7e84681a90d0693e63169a5d50e0839a0d
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  fluttertoast: e9a18c7be5413da53898f660530c56f35edfba9c
   image_picker_ios: 4a8aadfbb6dc30ad5141a2ce3832af9214a705b5
-  path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
+  password_protected_pdf_checker: a73cf858743882ef51204192ae873f08c9db4f33
+  path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
   pdfx: 7b876b09de8b7a0bf444a4f82b439ffcff4ee1ec
   printing: 233e1b73bd1f4a05615548e9b5a324c98588640b
-  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
-  share_plus: 599aa54e4ea31d4b4c0e9c911bcc26c55e791028
+  share_plus: 8875f4f2500512ea181eef553c3e27dba5135aad
   syncfusion_flutter_pdfviewer: bb9998884b864cfedf72628df3503bdf57e397c0
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
-  url_launcher_ios: 08a3dfac5fb39e8759aeb0abbd5d9480f30fc8b4
-  webview_flutter_wkwebview: 2e2d318f21a5e036e2c3f26171342e95908bd60a
+  url_launcher_ios: 5334b05cef931de560670eeae103fd3e431ac3fe
 
-PODFILE CHECKSUM: 390fdbafc55b74c2a08dad8a7ab2373b7ec272d8
+PODFILE CHECKSUM: 94014d9df81936eff791af8bc58322637433dab6
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.15.2
