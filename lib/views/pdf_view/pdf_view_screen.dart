@@ -149,8 +149,7 @@ class PdfViewScreen extends StatelessWidget {
                       );
                     },
                     child: Container(
-                      height: 38,
-                      width: 40,
+                      width: 35,
                       color: Colors.transparent,
                       padding: const EdgeInsets.all(5),
                       child: SvgPicture.asset(
@@ -167,8 +166,7 @@ class PdfViewScreen extends StatelessWidget {
                       );
                     },
                     child: Container(
-                      height: 38,
-                      width: 40,
+                      width: 35,
                       color: Colors.transparent,
                       padding: const EdgeInsets.all(5),
                       child: SvgPicture.asset(
@@ -182,8 +180,7 @@ class PdfViewScreen extends StatelessWidget {
                       await passwordDialog(context);
                     },
                     child: Container(
-                      height: 38,
-                      width: 40,
+                      width: 35,
                       color: Colors.transparent,
                       padding: const EdgeInsets.all(5),
                       child: SvgPicture.asset(
@@ -200,8 +197,7 @@ class PdfViewScreen extends StatelessWidget {
                           : await fileNameDialog(context);
                     },
                     child: Container(
-                      height: 38,
-                      width: 40,
+                      width: 35,
                       color: Colors.transparent,
                       padding: const EdgeInsets.all(5),
                       child: SvgPicture.asset(
@@ -358,6 +354,7 @@ class PdfViewScreen extends StatelessWidget {
                       AppButton(
                         width: 100,
                         height: 38,
+                        fontSize: 12,
                         borderRadius: BorderRadius.circular(5),
                         title: "Cancel",
                         buttonType: ButtonType.outline,
@@ -371,6 +368,7 @@ class PdfViewScreen extends StatelessWidget {
                       AppButton(
                         width: 100,
                         height: 38,
+                        fontSize: 12,
                         title: "Confirm",
                         borderRadius: BorderRadius.circular(5),
                         buttonType: ButtonType.gradient,

@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Photo To PDF Studio</string>
+	<string>Photo To PDF</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -36,10 +36,10 @@
 		<string>http</string>
 	</array>
 	<key>NSCameraUsageDescription</key>
-	<string>Photo to PDF Studio application needs permission to access your camera for convert
+	<string>Photo to PDF application needs permission to access your camera for convert
 			images into PDF.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Photo to PDF Studio application needs permission to access your camera for convert
+	<string>Photo to PDF application needs permission to access your camera for convert
 			images into PDF.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>

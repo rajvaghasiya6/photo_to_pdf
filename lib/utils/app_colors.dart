@@ -12,7 +12,7 @@ class AppColors {
 
   static List<Color> gradientColor = [
     const Color(0xFFFF223F),
-    const Color.fromARGB(255, 255, 86, 95)
+    const Color(0xFFFF565F)
   ];
 
   static Color fromHex(String hexString) {

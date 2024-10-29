@@ -5,6 +5,9 @@ PODS:
   - fluttertoast (0.0.2):
     - Flutter
     - Toast
+  - image_cropper (0.0.4):
+    - Flutter
+    - TOCropViewController (~> 2.7.4)
   - image_picker_ios (0.0.1):
     - Flutter
   - password_protected_pdf_checker (0.0.1):
@@ -21,6 +24,7 @@ PODS:
   - syncfusion_flutter_pdfviewer (0.0.1):
     - Flutter
   - Toast (4.0.0)
+  - TOCropViewController (2.7.4)
   - url_launcher_ios (0.0.1):
     - Flutter
 
@@ -28,6 +32,7 @@ DEPENDENCIES:
   - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
   - Flutter (from `Flutter`)
   - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
+  - image_cropper (from `.symlinks/plugins/image_cropper/ios`)
   - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
   - password_protected_pdf_checker (from `.symlinks/plugins/password_protected_pdf_checker/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
@@ -40,6 +45,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Toast
+    - TOCropViewController
 
 EXTERNAL SOURCES:
   device_info_plus:
@@ -48,6 +54,8 @@ EXTERNAL SOURCES:
     :path: Flutter
   fluttertoast:
     :path: ".symlinks/plugins/fluttertoast/ios"
+  image_cropper:
+    :path: ".symlinks/plugins/image_cropper/ios"
   image_picker_ios:
     :path: ".symlinks/plugins/image_picker_ios/ios"
   password_protected_pdf_checker:
@@ -69,6 +77,7 @@ SPEC CHECKSUMS:
   device_info_plus: 97af1d7e84681a90d0693e63169a5d50e0839a0d
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   fluttertoast: e9a18c7be5413da53898f660530c56f35edfba9c
+  image_cropper: 37d40f62177c101ff4c164906d259ea2c3aa70cf
   image_picker_ios: 4a8aadfbb6dc30ad5141a2ce3832af9214a705b5
   password_protected_pdf_checker: a73cf858743882ef51204192ae873f08c9db4f33
   path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
@@ -77,6 +86,7 @@ SPEC CHECKSUMS:
   share_plus: 8875f4f2500512ea181eef553c3e27dba5135aad
   syncfusion_flutter_pdfviewer: bb9998884b864cfedf72628df3503bdf57e397c0
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
+  TOCropViewController: 80b8985ad794298fb69d3341de183f33d1853654
   url_launcher_ios: 5334b05cef931de560670eeae103fd3e431ac3fe
 
 PODFILE CHECKSUM: 94014d9df81936eff791af8bc58322637433dab6

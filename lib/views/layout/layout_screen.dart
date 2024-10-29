@@ -18,6 +18,7 @@ class LayoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFE5E5E5),
       appBar: AppBar(
         title: Text('Frames',
             style: AppStyle.boldStyle(fz: 20, color: AppColors.kPrimaryColor)),
@@ -32,40 +33,19 @@ class LayoutScreen extends StatelessWidget {
               GridView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   padding: const EdgeInsets.symmetric(horizontal: 10),
-                  itemCount: con.layoutName1.length,
+                  itemCount: con.layoutName.length,
                   shrinkWrap: true,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      mainAxisExtent: 180,
+                      mainAxisExtent: 200,
                       crossAxisCount: 3,
                       crossAxisSpacing: 10,
                       mainAxisSpacing: 10),
                   itemBuilder: (context, index) => Column(
                         children: [
-                          layout1(
-                              layoutName: con.layoutName1[index],
-                              index: con.index1[index],
+                          layout(
+                              layoutName: con.layoutName[index],
+                              index: index,
                               context: context)
-                        ],
-                      )),
-              const SizedBox(
-                height: 10,
-              ),
-              GridView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  itemCount: con.layoutName2.length,
-                  shrinkWrap: true,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      mainAxisExtent: 180,
-                      crossAxisCount: 3,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10),
-                  itemBuilder: (context, index) => Column(
-                        children: [
-                          layout2(
-                              layoutName: con.layoutName2[index],
-                              index: con.index2[index],
-                              context: context),
                         ],
                       )),
             ],
@@ -75,7 +55,8 @@ class LayoutScreen extends StatelessWidget {
     );
   }
 
-  layout1({String? layoutName, int? index, required BuildContext context}) {
+  layout(
+      {String? layoutName, required int index, required BuildContext context}) {
     return Column(
       children: [
         GestureDetector(
@@ -99,144 +80,9 @@ class LayoutScreen extends StatelessWidget {
               );
             }
           },
-          child: index == 0
-              ? Column(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: AppColors.kPrimaryColor,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      height: 150,
-                      width: Get.width,
-                    ),
-                  ],
-                )
-              : Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(width: 2, color: Colors.black),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  height: 150,
-                  width: Get.width,
-                  child: FractionallySizedBox(
-                    heightFactor: index == 2 ? 0.8 : .9,
-                    widthFactor: index == 2 ? 0.78 : .85,
-                    child: Container(
-                      height: 150,
-                      decoration: BoxDecoration(
-                        color: AppColors.kPrimaryColor,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Container(
-                            height: (index! >= 3 && index != 4) ? 3 : 0,
-                            color: Colors.black,
-                          ),
-                          Container(
-                            width: index >= 4 ? 3 : 0,
-                            color: Colors.black,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        Text(layoutName ?? "")
-      ],
-    );
-  }
-
-  layout2({String? layoutName, int? index, required BuildContext context}) {
-    return Column(
-      children: [
-        GestureDetector(
-          onTap: () {
-            con.selectedType.value = layoutName ?? '';
-            if (con.fromPdfView) {
-              viewCon.type.value = con.selectedType.value;
-              imageCon.selectedType.value = con.selectedType.value;
-              viewCon.selectedImage.value = imageCon.tempImageFileList;
-              Get.offNamedUntil(
-                AppRoutes.pdfViewScreen,
-                (route) => true,
-              );
-            } else {
-              viewCon.type.value = con.selectedType.value;
-              imageCon.selectedType.value = con.selectedType.value;
-              viewCon.selectedImage.value = imageCon.tempImageFileList;
-              Get.toNamed(
-                AppRoutes.pdfViewScreen,
-              );
-            }
-          },
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border.all(width: 2, color: Colors.black),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            height: 150,
-            width: Get.width,
-            child: FractionallySizedBox(
-              heightFactor: .9,
-              widthFactor: .85,
-              child: Container(
-                height: 150,
-                decoration: BoxDecoration(
-                  color: AppColors.kPrimaryColor,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    (index! >= 6 && index != 7)
-                        ? Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Container(
-                                width: 3,
-                                color: Colors.black,
-                              ),
-                              Container(
-                                width: 3,
-                                color: Colors.black,
-                              ),
-                            ],
-                          )
-                        : Container(
-                            width: 3,
-                            color: Colors.black,
-                          ),
-                    index >= 7
-                        ? Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Container(
-                                height: 3,
-                                color: Colors.black,
-                              ),
-                              Container(
-                                height: 3,
-                                color: Colors.black,
-                              ),
-                            ],
-                          )
-                        : Container(
-                            height: 3,
-                            color: Colors.black,
-                          )
-                  ],
-                ),
-              ),
-            ),
+          child: Image.asset(
+            "assets/images/layout${index + 1}.png",
+            width: 100,
           ),
         ),
         const SizedBox(
@@ -245,45 +91,5 @@ class LayoutScreen extends StatelessWidget {
         Text(layoutName ?? "")
       ],
     );
-  }
-
-  none({String? layoutName, required BuildContext context}) {
-    GestureDetector(
-        onTap: () {
-          con.selectedType.value = layoutName ?? '';
-          if (con.fromPdfView) {
-            viewCon.type.value = con.selectedType.value;
-            imageCon.selectedType.value = con.selectedType.value;
-            viewCon.selectedImage.value = imageCon.tempImageFileList;
-            Get.offNamedUntil(
-              AppRoutes.pdfViewScreen,
-              (route) => true,
-            );
-          } else {
-            viewCon.type.value = con.selectedType.value;
-            imageCon.selectedType.value = con.selectedType.value;
-            viewCon.selectedImage.value = imageCon.tempImageFileList;
-            Get.toNamed(
-              AppRoutes.pdfViewScreen,
-            );
-          }
-        },
-        child: Column(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(width: 2, color: Colors.black),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              height: 150,
-              width: Get.width,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Text(layoutName ?? "")
-          ],
-        ));
   }
 }
